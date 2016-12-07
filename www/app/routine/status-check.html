@@ -1,0 +1,39 @@
+<ion-modal-view class="iphonemodal iphone6plusmodal ip6nexus5x6p ip6ip5 ip5modal">
+  <ion-header-bar class="scIonHeader">
+    <div class="currentDateHeader">
+      <h5 style="margin: auto;">Status Check</h5>
+      
+    </div>
+    <div class="buttons">
+      <i class="ion-android-close hideRestoSetup" ng-click="hideStatusListModal()"></i>
+    </div>
+  </ion-header-bar>
+  <div class="bar bar-subheader" style="text-align: center;">
+    <label class='app-btn routine-current-time-label'>{{currentRoutine.routineDate |date:'EEEE, MMMM d, y'}}</label>
+  </div>
+
+  <ion-content class="statusCheckContent">
+    <!-- <div class="scHeader">
+      Food Safety Check</br>
+    </div> -->
+    
+    <div class="list" style="text-align:center;">
+      <ng-repeat ng-repeat="(activityType, activityData) in routineCategoryLists">
+        <div class="item item-divider bar" style="background-color: #373a5d; color: #fff;">{{activityType}}</div>
+        <div class="item row">
+          <div class="col">Schedule</div>
+          <div class="col">Completed</div>
+          <div class="col">Status</div>
+        </div>
+        <div class="item row statusCheckRow" ng-repeat="activityTimeItem in activityData">
+          <div class="col">{{activityTimeItem.desc0}}</div>
+          <div class="col">{{activityTimeItem.evalItem.timeCompleted}}</div>
+          <div class="col">
+            <i class="ion-ios-checkmark-empty statusCheckMark" ng-if="activityTimeItem.evalItem.progress == 100"></i>
+          </div>
+        </div>
+      </ng-repeat>
+    </div>
+    
+  </ion-content>
+</ion-modal-view>

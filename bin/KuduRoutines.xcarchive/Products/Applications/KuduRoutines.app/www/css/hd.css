@@ -1,0 +1,117 @@
+
+.hd-list-bgColor
+{
+    background: #0c63ee;
+}
+.hd-list
+{
+    padding: 0 10px;
+}
+
+.hd-navigation-title {
+    font-size: 20px !important;
+    left: 28% !important;
+    right: 26% !important;
+}
+.hd-select-component {
+
+    width:100%;
+    height:40px;
+    margin:10px 0;
+    border: 0px;
+    /*border:solid 1px #cccccc;*/
+}
+
+.hd-textArea-component
+{
+    width:100%;
+    height:200px;
+    margin: 5px 0;
+    border:1px solid  #ccc;
+}
+
+.hd-textInput-component
+{
+    background: #fff;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    margin: 5px;
+}
+.hd-span
+{
+    /*font-style: italic;*/
+    font-weight: bold;
+    /*margin-left:  5px;*/
+    /*margin-right: 5px;*/
+
+}
+.hd-span-color
+{
+    color: #aaa;
+}
+
+
+/*.hd-violation-status-ctn{*/
+    /*text-align: center;*/
+/*}*/
+.hd-violation-status
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: table;
+    margin: 0 auto;
+    border: solid 1px #C0C0C0
+}
+
+.hd-violation-status.unchecked
+{
+    background-color: #EBEBEB;
+}
+
+.hd-violation-status.checked
+{
+    background-color: #F2FF00;
+}
+
+.hd-notStarted-color{
+    background-color: red;
+}
+
+.hd-inProgress-color{
+    background-color: yellow;
+
+}
+.hd-complete-color{
+    background-color: green;
+}
+
+.hd-N-circle{
+    color: red;
+    font-size: 3em;
+}
+
+.hd-C-circle{
+    color: green;
+    font-size: 3em;
+}
+
+.hd-P-circle{
+    color: yellow;
+    font-size: 3em;
+}
+
+.hd-img
+{
+    height : 232px;
+    width : 100%;
+    /*display: block;*/
+    /*transition:1s height,1s width;*/
+}
+
+/*.hd-img:hover{*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*z-index:-1;*/
+/*}*/
+

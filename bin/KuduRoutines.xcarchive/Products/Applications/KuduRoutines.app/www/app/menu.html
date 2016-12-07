@@ -1,0 +1,61 @@
+<ion-side-menus enable-menu-with-back-views="true">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-stable">
+     <!--  <ion-nav-back-button>
+     </ion-nav-back-button> -->
+ 	 
+      <ion-nav-buttons side="left" >
+        <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+
+    </ion-nav-bar>
+    
+    <ion-nav-view name="menuContent">
+    </ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" class="app-side-menu-bg">
+    <ion-header-bar class="bar-transparent-bg">
+      <img class="app-side-menu-title-image" src="img/kudu_logo.svg"/>
+    </ion-header-bar>
+    <ion-content class="app-side-menu-bg">
+
+      <ion-list>
+        <ion-item class="app-side-menu-item-bg" nav-clear menu-close href="#/app/home">
+            <div class="menu-item-div">
+              <img class="app-side-menu-item-icon" src="img/home.svg">
+              <p class="menu-item-p">Home</p>
+            </div>
+        </ion-item>
+
+        <ion-item class="app-side-menu-item-bg" nav-clear menu-close href="#/app/routine-home">
+            <div class="menu-item-div">
+              <img class="app-side-menu-item-icon" src="img/calendar.svg">
+              <p class="menu-item-p">Daily Routine</p>
+            </div>
+        </ion-item>
+
+        <ion-item class="app-side-menu-item-bg" nav-clear menu-close href="#/app/reports">
+            <div class="menu-item-div">
+              <img class="app-side-menu-item-icon" src="img/reports.svg">
+              <p class="menu-item-p">Reports</p>
+            </div>
+        </ion-item>
+
+        <ion-item class="app-side-menu-item-bg" nav-clear menu-close href="#/app/settings">
+            <div class="menu-item-div">
+              <!-- <img class="app-side-menu-item-icon" src="img/calendar.svg"> -->
+              <i class="icon ion-gear-a" style="font-size: 35px;"></i>
+              <p class="menu-item-p">Settings</p>
+            </div>
+        </ion-item>
+
+       <!--  <ion-item class="item-icon-left item-stable app-side-menu-item" nav-clear menu-close href="#/app/settings">
+          <i class="icon ion-ios-gear-outline"></i> Settings
+        </ion-item> -->
+
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

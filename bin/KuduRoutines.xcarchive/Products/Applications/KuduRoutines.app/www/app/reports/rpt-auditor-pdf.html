@@ -1,0 +1,48 @@
+<ion-view title="">
+        <ion-nav-bar class="bar-light">
+            <ion-nav-back-button ng-click="gotoReportsHome()">
+            </ion-nav-back-button>
+        </ion-nav-bar>
+    
+    <ion-content class="has-header">
+        <div class="list list-inset">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Month
+                </div>
+                <select>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Type
+                </div>
+                <select>
+                    <option value="summary">Summary</option>
+                    <option value="foodSafety">Food Safety</option>
+                    <option value="temperatures">Temperatures</option>
+                    <option value="detail">Detail</option>
+                </select>
+            </label>
+
+
+            <button class="button button-block button-positive" ng-click=AuditorPdfView()>
+                View
+            </button>
+
+        </div>
+    </ion-content>
+</ion-view>

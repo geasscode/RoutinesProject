@@ -1,0 +1,139 @@
+<!--  Defining Angle Gradient Colors  --> 
+<svg width="0" height="0">
+<defs>
+  <linearGradient id="cl1" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+  <linearGradient id="cl2" gradientUnits="objectBoundingBox" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+  <linearGradient id="cl3" gradientUnits="objectBoundingBox" x1="1" y1="0" x2="0" y2="1">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+  <linearGradient id="cl4" gradientUnits="objectBoundingBox" x1="1" y1="1" x2="0" y2="0">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+  <linearGradient id="cl5" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="0" y2="0">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+  <linearGradient id="cl6" gradientUnits="objectBoundingBox" x1="0" y1="1" x2="1" y2="0">
+    <stop stop-color="{{configCircularParam.circularBgColor}}"/>
+    <stop offset="100%" stop-color="{{configCircularParam.circularBgColor}}"/>
+  </linearGradient>
+</defs>
+</svg>
+<!-- CSS -->
+<style>
+/* epng-circular-load animation */
+@-webkit-keyframes 
+epng-circular-load-{{configCircularParam.id}} { 0% {
+stroke-dashoffset:629
+}
+}
+@-moz-keyframes 
+epng-circular-load-{{configCircularParam.id}} { 0% {
+stroke-dashoffset:629
+}
+}
+@keyframes 
+epng-circular-load-{{configCircularParam.id}} { 0% {
+stroke-dashoffset:629
+}
+}
+
+/* Container */
+.epng-circular-progress-{{configCircularParam.id}} {
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	text-align: center;
+	margin: 0;
+	right: 2px;
+  	top: 2px;
+}
+
+/* Item */
+.epng-circular-progress-{{configCircularParam.id}}>li {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	color: {{configCircularParam.circularNumColor}};
+	font-family: {{configCircularParam.circularNumFont}};
+	font-weight: 100;
+	/*margin: 2rem;*/
+}
+
+.epng-circular-progress-{{configCircularParam.id}}>li:before {
+	content: attr(data-name);
+	position: absolute;
+	width: 100%;
+	font-weight: bold;
+	font-size: {{configCircularParam.dotSize}};
+	color: #FFFFFF;
+	z-index: 999;
+	top: {{configCircularParam.dotTopPosition}};
+	left: {{configCircularParam.dotLeftPosition}};
+	/*
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	*/
+}
+
+.epng-circular-progress-{{configCircularParam.id}}>li:after {
+	content: attr(data-percent);
+	position: absolute;
+	width: 100%;
+	left: 0;
+	font-size: {{configCircularParam.circularNumFontSize}};
+	text-align: center;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.epng-circular-progress-{{configCircularParam.id}} svg:nth-child(2) {
+	position: absolute;
+	left: 0;
+	top: 0;
+	
+	-webkit-transform: rotate(90deg) rotateY(-180deg);
+	-moz-transform: rotate(90deg) rotateY(-180deg);
+	-ms-transform: rotate(90deg) rotateY(-180deg);
+	transform: rotate(90deg) rotateY(-180deg);
+}
+
+.epng-circular-progress-{{configCircularParam.id}} svg:nth-child(2) path {
+	webkit-transform: translateZ(0);
+	fill: none;
+	stroke-dasharray: 629;
+	-webkit-animation: epng-circular-load-{{configCircularParam.id}} {{configCircularParam.animationDuration}}s;
+	-moz-animation: epng-circular-load-{{configCircularParam.id}} {{configCircularParam.animationDuration}}s;
+	-o-animation: epng-circular-load-{{configCircularParam.id}} {{configCircularParam.animationDuration}}s;
+	animation: epng-circular-load-{{configCircularParam.id}} {{configCircularParam.animationDuration}}s;
+}
+</style>
+<!--  Container  -->
+<ul class="epng-circular-progress-{{configCircularParam.id}}">
+  <!--  Item  -->
+  <li data-name="." data-percent="{{configCircularParam.circularNum}}%"> <svg viewBox="-19 -19 240 240" style="width: {{configCircularParam.circularWidth}}; height: {{configCircularParam.circularHeight}};">
+    <g fill="none" stroke-width="{{configCircularParam.circularBgSize}}" transform="translate(100,100)">
+      <path d="M 0,-100 A 100,100 0 0,1 86.6,-50" stroke="url(#cl1)"/>
+      <path d="M 86.6,-50 A 100,100 0 0,1 86.6,50" stroke="url(#cl2)"/>
+      <path d="M 86.6,50 A 100,100 0 0,1 0,100" stroke="url(#cl3)"/>
+      <path d="M 0,100 A 100,100 0 0,1 -86.6,50" stroke="url(#cl4)"/>
+      <path d="M -86.6,50 A 100,100 0 0,1 -86.6,-50" stroke="url(#cl5)"/>
+      <path d="M -86.6,-50 A 100,100 0 0,1 0,-100" stroke="url(#cl6)"/>
+    </g>
+    </svg> <svg viewBox="-19 -19 240 240" style="width: {{configCircularParam.circularWidth}}; height: {{configCircularParam.circularHeight}};">
+    <path style="stroke: {{configCircularParam.circularFrontColor}}; stroke-width: {{configCircularParam.circularFrontSize}};" stroke-linecap="round" d="M200,100 C200,44.771525 155.228475,0 100,0 C44.771525,0 0,44.771525 0,100 C0,155.228475 44.771525,200 100,200 C155.228475,200 200,155.228475 200,100 Z" stroke-dashoffset="{{629 - (configCircularParam.circularNum * 629 / 100)}}"></path>
+    </svg> </li>
+</ul>

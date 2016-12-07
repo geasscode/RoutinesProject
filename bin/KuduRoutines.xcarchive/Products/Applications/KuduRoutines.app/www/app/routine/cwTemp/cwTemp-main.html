@@ -1,0 +1,49 @@
+<ion-view class='temp-title'>
+
+        <ion-nav-bar class="bar-light">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+        </ion-nav-bar>
+
+  <!-- <ion-nav-buttons side="right">
+    <div id="routine-epng-circular-progress" ng-show="showChart">
+      <epng-circular-progress epng-model="configCircularParam"></epng-circular-progress>
+    </div>
+  </ion-nav-buttons> -->
+
+  <ion-content scroll=false>   
+    <!-- <div class='routine-header-bar' >
+      <label class="temp-restaurant-number" style="padding-right:30px;">
+        {{currentRoutine.accountNumber}}&nbsp;
+      </label>
+      <label class="temp-current-day">
+        {{currentRoutine.routineDate}}&nbsp;
+      </label>
+    </div> -->
+
+    <div class="list" style="margin-bottom:0px;">      
+      <a class="item item-icon-left item-icon-right routine-current-time-bar app-bg-positive">
+        <i class="icon ion-ios-arrow-left " style="left: -3px; font-size: 24px;" ng-click="changeCurrentTime(true)"> </i>
+               <label class='app-btn routine-current-time-label' >{{currentTime.desc0}}</label>
+        <i class="icon ion-ios-arrow-right " style="right:-3px; font-size: 24px;" ng-click="changeCurrentTime(false)"></i>
+      </a>
+    </div>
+    
+    <a class="item item-icon-left item-icon-right  temp-current-category app-bg-dark" style="background-color: #5E5E5E;">
+      <i class="icon ion-navicon-round app-btn " style="color:white;left: 5px;" ng-click='switchProductView()'> </i>
+<!--         <select class ="temp-category-selection" 
+          ng-model="tempCategoryItem"
+          ng-change="selectTempCategory(tempCategoryItem)"
+          ng-options="item as item.desc0 for item in tempCategoryList">
+        </select> -->
+       <div class="temp-selection-popover-label app-btn">{{currentTempProduct.category}}</div>
+       <i class="icon app-btn" ng-class="{'ion-android-alert':tempFootprintAlertIcon,'ion-ios-close-outline':!tempFootprintAlertIcon,'app-hide':alertHide}" style="color:#F5B11E;right: 5px;"  ng-click='goToTempDeviceInfo()'></i> 
+<!--         <i class="icon" style="right: 5px;"  
+       		 ng-class="{'icon-ep-bluetooth-connect temp-bluetooth-connected':isShowTempEditor != 'NC','icon-ep-bluetooth-disconnect temp-bluetooth-disconnected':isShowTempEditor == 'NC'}"
+        ></i>	 -->
+    </a>
+    <!--  <i class="icon icon ion-ios-compose-outline temp-manual-m app-btn"  
+     	ng-class="{'app-hide':isShowTempEditor != 'NC'}" ng-click='showManualInputDialog()'></i> -->
+    <div ng-include="template" style="height:100%;"></div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,42 @@
+<ion-view>
+        <ion-nav-bar class="bar-light">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+        </ion-nav-bar>
+
+  <!-- <ion-nav-buttons side="right">
+    <div id="routine-epng-circular-progress" ng-show="showChart">
+      <epng-circular-progress epng-model="configCircularParam"></epng-circular-progress>
+    </div>
+  </ion-nav-buttons> -->
+
+  <ion-content scroll=false class="vbox">
+
+    <!-- <div class='routine-header-bar' >
+      <label class="temp-restaurant-number" style="padding-right:30px;">
+        {{currentRoutine.accountNumber}}&nbsp;
+      </label>
+      <label class="temp-current-day">
+        {{currentRoutine.routineDate}}&nbsp;
+      </label>
+    </div> -->
+    <img class="temp-product-image" ng-src="{{testImageSrc}}" >
+    <div class="list" style="margin-bottom:0px;">      
+      <a class="item item-icon-left item-icon-right routine-current-time-bar app-bg-positive">
+        <i class="icon ion-ios-arrow-left "  style="left: -3px; font-size: 24px;"  ng-click="changeCurrentTime(true)"></i>
+            <label class='app-btn routine-current-time-label' >{{currentTime.desc0}}</label>
+        <i class="icon ion-ios-arrow-right " style="right: -3px; font-size: 24px;" ng-click="changeCurrentTime(false)"></i>
+      </a>
+    </div>
+
+	  <!-- <ion-scroll style="height: 100%;position: initial;" delegate-handle="fsListScroll"> -->
+	 <!-- 	 <div ng-include="template"></div> -->
+<!-- 	    <div class="temp-slide-animate-container">
+  		   <div class="{{templateAnimate}}"ng-include="template" autoscroll></div>
+    	<div >	 -->
+    	
+    	<div ng-include="template" class="flex vbox" ></div>
+<!--     </ion-scroll> -->
+
+  </ion-content>
+</ion-view>

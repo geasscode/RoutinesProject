@@ -1,0 +1,82 @@
+<ion-modal-view class="iphonemodal iphone6plusmodal ip6nexus5x6p ip6ip5 ip5modal">
+  <ion-header-bar class="scIonHeader">
+    <div class="currentDateHeader">
+      <h5 style="margin: auto;">Status Check</h5>
+      
+    </div>
+    <div class="buttons">
+      <i class="ion-android-close hideRestoSetup" ng-click="hideStatusListModal()"></i>
+    </div>
+  </ion-header-bar>
+  <div class="bar bar-subheader" style="text-align: center;">
+    <label class='app-btn routine-current-time-label'>{{currentRoutine.routineDate |date:'EEEE, MMMM d, y'}}</label>
+  </div>
+
+  <ion-content class="statusCheckContent">
+
+    <!-- <div class="row">
+      <i style="padding: .8em 1em 0px 1em;">Completed:</i>
+      <h4 style="color: #373a5d;">87%</h4>
+    </div> -->
+    
+    <div class="list" style="text-align:center;">
+      <ng-repeat ng-repeat="(activityType, activityData) in routineCategoryLists">
+        <div class="item item-divider bar" style="background-color: #373a5d; color: #fff;">{{activityType}}</div>
+        <div class="item row">
+          <div class="col">Schedule</div>
+          <div class="col">Completed</div>
+          <div class="col">Status</div>
+        </div>
+        <div class="item row statusCheckRow" ng-repeat="activityTimeItem in activityData">
+          <div class="col">{{activityTimeItem.desc0}}</div>
+          <div class="col">{{activityTimeItem.evalItem.timeCompleted}}</div>
+          <div class="col">
+            <i class="ion-ios-checkmark-empty statusCheckMark" ng-if="activityTimeItem.evalItem.progress == 100"></i>
+          </div>
+        </div>
+      </ng-repeat>
+    </div>
+
+    <div class="row" style="height: 5em;">
+      <h4 style="margin: auto; color: #373a5d;">Upload History</h4>
+    </div>
+    <div class="list" style="text-align:center;">
+      <ng-repeat ng-repeat="(uploadHistoryDate, uploadHistoryData) in uploadHistoryList">
+        <div class="item item-divider bar" style="background-color: #373a5d; color: #fff;">{{uploadHistoryDate | date:'EEEE, MMMM d, y'}}</div>
+        <div class="item row">
+          <div class="col">Version</div>
+          <div class="col">Uploaded on</div>
+          <div class="col">Status</div>
+        </div>
+        <div class="item row statusCheckRow" ng-repeat="uploadHistoryItem in uploadHistoryData">
+          <div class="col">{{$index + 1}}</div>
+          <div class="col"><span ng-if="uploadHistoryItem.date">{{uploadHistoryItem.date | date:'shortTime'}}</span></div>
+          <div class="col">
+            <i class="ion-ios-checkmark-empty statusCheckMark" ng-if="uploadHistoryItem.progress == 100"></i>
+            <span ng-if="uploadHistoryItem.progress != 100">NC</span>
+          </div>
+        </div>
+      </ng-repeat>
+    </div>
+<!-- 
+
+    DATA UPLOAD
+
+Latest Routine Date: Saturday, 2016-Oct-15
+% Complete: 88%
+
+Status  [NO UPLOADED] red color
+
+        [UPLOAD TO SERVER]  if uploaded button is disabled
+
+
+History
+========================================================
+Date              Attempt       Uploaded       Status
+2016/10/15                          100%       [blank if not uploaded]
+2016/10/14                          100%       v (green check)
+2016/10/13                          90%
+ -->
+    
+  </ion-content>
+</ion-modal-view>

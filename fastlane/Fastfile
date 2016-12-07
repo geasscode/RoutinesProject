@@ -1,0 +1,251 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+# update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.110.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+
+    ensure_git_status_clean
+     ensure_git_branch(
+       branch: 'dev'
+  )
+
+
+   #执行此句增加最小的单位，0.7.0 会变成0.7.1 对于cordova 项目一般不需要，因为执行gulp build  自动生成已经配置的项目了。
+   increment_version_number
+  #  increment_version_number(
+  #    bump_type: "patch" # Automatically increment patch version number
+  # )
+  #  increment_version_number(
+  # bump_type: "minor" # Automatically increment minor version number
+  # )
+  #  increment_version_number(
+  # bump_type: "major" # Automatically increment major version number
+  # )
+  #  increment_version_number(
+  # version_number: "2.1.1" # Set a specific version number
+  # )
+
+  end
+
+
+  desc "Runs all the tests"
+  lane :test do
+    scan
+  end
+
+  desc "Submit a new Beta Build to Apple TestFlight"
+  desc "This will also make sure the profile is up to date"
+  lane :beta do
+    # match(type: "appstore") # more information: https://codesigning.guide
+    gym # Build your app - more options available
+    pilot
+
+    # sh "your_script.sh"
+    # You can also use other beta testing services here (run `fastlane actions`)
+  end
+
+
+#set_info_plist_value(path: "./Info.plist", key: "CFBundleIdentifier", value: #”com.krausefx.app.beta")
+
+desc "Deploy a new version to the App Store"
+lane :release do
+    # match(type: "appstore")
+    # snapshot
+    gym # Build your app - more options available
+    deliver(force: true)
+    # frameit
+  end
+
+      # portalTeamID='2WT78RG4ZP'
+      # workspace: "ProductHunt.xcworkspace",
+      #codesigning_identity:"iPhone Distribution: The Technology Studio, LLC",
+      #provisioning_profile_path: ENV["PROJECT_PROVISIONING_PATH"],
+
+#不指定 export_method 会报错
+#Unfortunately the new Xcode export API is unstable and causes problems on some projects
+ # error: exportArchive: The operation couldn’t be completed. (IDEDistributionErrorDomain error 3.)
+
+ #编译及clean
+# xcodebuild -list -project ./KuduRoutines.xcodeproj -configuration Release
+ # xcodebuild clean -showBuildSettings -scheme KuduRoutines -project ./KuduRoutines.xcodeproj -configuration Release
+
+#  Generated plist file with the following values:
+# [17:46:19]: ▸ -----------------------------------------
+# [17:46:19]: ▸ {
+# [17:46:19]: ▸   "method": "enterprise"
+# [17:46:19]: ▸ }
+# [17:46:19]: ▸ -----------------------------------------
+
+# [17:52:39]: ▸   "uploadSymbols": true,
+# [17:52:39]: ▸   "uploadBitcode": false
+# [17:57:57]: ▸ Running script 'Copy www directory'
+
+ #不推荐用cert 以及sigh ，苹果服务器会返回 错误。
+    #不需要将git_url 换成证书路径，因为会提示没有权限，只要设了.git 系统自动会it clone 证书
+    #企业版或者appstore 版 ，需要将type  换成 enterprise 和 appstore 当然只自己用的话可以换成development
+    #match 当项目从未配置profile 跟证书情况下使用。当然profile 文件需要自己从开发者网站新建不然会报错。
+    #match 是自己下载证书跟profile ，当下载完之后将force 设为false，表示不需要再下载。只需从
+    #git 将之前下载的证书安装即可
+      #match(
+      # git_url: "https://github.com/geasscode/CIProject.git",
+      # app_identifier: "com.geass.CIProject",
+      # username:"geasscode@outlook.com",
+      # type: "adhoc",
+      # git_branch:"dev",
+      # skip_docs:true,
+      # force_for_new_devices:true,
+      # force:false,
+      # readonly:true
+      # )
+
+    build_name = "KuduRoutines_v#{get_version_number}"
+    #export 有下面几种方式
+     #export_method:"ad-hoc,enterprise,appstore,development"
+
+     #一定要注意一定要加上export_method:"enterprise" 否则会报错，或者用
+     #use_legacy_build_api: true代替
+
+   #编译sqlite 时会停留很长时间因为存在语法警告。
+
+  lane :buildIPA do
+    gym(
+      configuration: "Release",
+      scheme: "KuduRoutines",
+      include_bitcode: false,
+      output_name: "#{build_name}.ipa",
+      silent: true,
+      clean: true,
+      include_symbols:true,
+      output_directory: "~/Documents/buildIPA/",
+      # use_legacy_build_api: true,
+      export_method:"enterprise"
+      )
+  end
+
+  # You can define as many lanes as you want
+
+  after_all do |lane|
+
+  #  由于修改了版本号，所以需要将代码Commit和Push一下
+  # Make sure our directory is clean, except for changes Fastlane has made
+   # clean_build_artifacts
+
+
+  sh("fir publish ~/Documents/buildIPA/KuduRoutines_v#{get_version_number}.ipa -T b668e48c86ec4baf052b4a37899f4eb2").strip
+
+  increment_build_number(
+    build_number: Time.new.strftime("%Y.%m.%d")
+  )
+
+# No file changes picked up. Make sure you run the `increment_build_number` action first.
+    # sh("git add . && git commit -m 'Deploying version #{get_version_number}'").strip
+
+  commit_version_bump(
+   message: "Deploying version #{get_version_number}."
+  )
+    # git_commit(message: "Version Bump")
+
+
+  push_to_git_remote(
+   remote: "origin",  # optional, default: "origin"
+   local_branch: "dev",  # optional, aliased by "branch", default: "master"
+   remote_branch: "dev", # optional, default is set to local_branch
+   force: true, # optional, default: false
+   tags: false  # optional, default: true
+  )
+
+   ship_it
+   #下面注释哪句jekins 会报 FAILED TO establish the default connection to the WindowServer, _CGSDefaultConnection() is NULL。
+   # notification(subtitle: "Finished Building", message: "Ready to upload...")
+  end
+
+  error do |lane, exception|
+    #非jenkins 环境手动build 可以使用下面的方式。
+    # notification(subtitle: "errored", message: "Fastlane '#{lane}' errored")
+
+  end
+end
+
+def change_log_since_last_tag
+    # http://git-scm.com/docs/pretty-formats
+    # <short hash> <commit title>
+    return changelog_from_git_commits(pretty: '%h %s')
+end
+
+def next_version
+  Time.now.strftime("%Y%m%d%H%M")
+end
+
+def get_DisplayName
+  `/usr/libexec/PlistBuddy -c 'Print CFBundleDisplayName' ../CIProject/Info.plist`.strip
+end
+
+def compare_url
+  last_bump_hash = sh("git log --pretty=format:'%s %h' | grep -i '^version bump [0-9]\\{12\\}\\b' | awk '{print $NF}' | head -n1").strip
+  current_hash = sh("git rev-parse HEAD").strip
+
+  "https://github.com/timehop/TimehopThree-iOS/compare/#{last_bump_hash}...#{current_hash}"
+end
+
+ def tag_name(build_type, version_number, build_number)
+    "#{build_type}/#{version_number}/#{build_number}"
+end
+
+
+def ship_it
+  rand = Random.rand(0..1)
+  if rand == 0
+    squirrel
+  elsif rand == 1
+    boat
+  end
+end
+
+def squirrel
+  puts "
+    !!!!
+  !!!!!!!!
+!!!!!!!!!!!   O_O
+!!!  !!!!!!! /@ @\\
+      !!!!!! \\ x /
+      !!!!!!/ m  !m
+       !!!!/ __  |
+       !!!!|/  \\__
+        !!!\\______\\
+  "
+end
+
+def boat
+  puts "
+     .  o ..
+     o . o o.o
+          ...oo
+            __[]__
+         __|_o_o_o\__
+         \\\"\"\"\"\"\"\"\"\"\"/
+          \\. ..  . /
+     ^^^^^^^^^^^^^^^^^^^^
+  "
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Actions.md
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer

@@ -1,0 +1,37 @@
+<ion-view title="">
+
+    <ion-nav-bar class="bar-light">
+        <ion-nav-back-button ng-click="gotoReportsHome()">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    
+
+
+
+    <div align-title="center" class="bar bar-subheader bar-dark">
+        <h2 class="title">{{reportTemplate.description}}</h2>
+    </div>
+
+    <ion-content class="has-subheader">
+        <div class="list" style="margin-bottom:0px;">      
+          <a class="item item-icon-left item-icon-right routine-current-time-bar app-bg-positive">
+            <i class="icon ion-ios-arrow-left "  style="left: -3px; font-size: 24px;"  ng-click=""></i>
+                <label class='app-btn routine-current-time-label' >{{currentRoutine.routineDate | date:'EEEE, MMMM d, y'}}</label>
+               
+            <i class="icon ion-ios-arrow-right " style="right: -3px; font-size: 24px;" ng-click=""></i>
+          </a>
+        </div>
+
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefreshTemplateData(reportTemplate.index)">
+        </ion-refresher>
+        <ion-slide-box active-slide="tempActiveSlide" show-pager="true" on-slide-changed = "productSlideChanged(index)">
+            <ion-slide ng-repeat="template in templates">
+                <div ng-include="template.templateUrl">
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,98 @@
+.app-side-menu-title-image{
+    right: 1rem;
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    background-color: transparent !important;
+}
+.menu {
+    background-color: #23262a !important;
+}
+.bar.bar-balanced .title{
+    color: #000;
+}
+.app-top-bar-bg{
+    background-color: #ffd500 !important;;
+}
+
+ion-side-menu ion-item.item {
+    border-right: none;
+    border-left: none;
+    border-color: #33383e;
+    border: none;
+}
+
+ion-side-menu ion-item.item .item-content {
+    background-color: #23262a;
+}
+
+ion-side-menu ion-item.item .menu-text {
+    color: #FFFFFF;
+    font-family: "Segoe UI", sans-serif;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.menu-text2 {
+    color: #FFFFFF;
+    font-family: "Segoe UI", sans-serif;
+    line-height: 1.2;
+    text-align: left;
+}
+
+a.button.button-dark.item-icon-right.menu-text2 {
+    border: none;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: "Segoe UI", sans-serif;
+    line-height: 1.2;
+    background-color: #23262a;
+}
+
+.item-icon-left .icon {
+    left: 11px;
+}
+
+ion-side-menu ion-item.item .item-content .icon:before {
+    /*background-color: #1BC2A4;*/
+    /*color: #000;*/
+    border-radius: 50%;
+    font-size: 40px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.bar.bar-footer.bar-balanced{
+
+}
+.app-side-menu-bg{
+    background:url('../img/image-sidebar-bg.png');
+    background-size: cover;
+}
+.app-side-menu-item-bg,
+.app-side-menu-item-bg a{
+    background-color: transparent !important;
+}
+.app-side-menu-item-icon{
+    width: 35px;
+}
+
+.menu-logo-margin{
+    margin-top:35px;
+}
+.menu-item-div{
+    height: 35px;
+    line-height: 35px;
+    margin-left:10px;
+    display: -webkit-flex;
+    display: flex;
+}
+.menu-item-p{
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    font-weight:blod;
+    font-size:1.2rem !important;
+    margin-left:10px;
+}

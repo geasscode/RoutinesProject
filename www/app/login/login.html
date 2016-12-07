@@ -1,0 +1,27 @@
+<ion-view title="Login">
+	<ion-content class="login-page">
+	
+		<div class="login-logo">
+			<img src="img/kudu_logo.svg" />
+		</div>
+		<div class="list list-inset">
+			<label class="item item-input">
+				<i class="icon ion-ios-person-outline placeholder-icon"></i>
+				<input type="text" placeholder="Username" ng-model="data.username">
+			</label>
+			<label class="item item-input">
+				<i class="icon ion-ios-locked-outline placeholder-icon"></i>
+			 	<input type="password" placeholder="Password" ng-model="data.password">
+			</label>
+
+			<button class="button button-block button-positive" ng-click="login(data)">Login</button>
+			
+			<div class="row">
+				<div class="col"></div>
+				<div class="col col-75 right-position"><a class="forgot-password">Forgot Your Password?</a></div>
+			</div>
+			
+		</div>
+			
+	</ion-content>
+</ion-view>

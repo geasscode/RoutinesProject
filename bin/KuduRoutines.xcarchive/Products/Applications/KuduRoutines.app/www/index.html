@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="lib/epicons/iconfont/style.css" rel="stylesheet">
+    <link href="lib/kricons/style.css" rel="stylesheet">
+    
+    <!-- build:css dist/css/styles.min.css -->
+    <link href="css/shared.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <link href="css/hd.css" rel="stylesheet">
+    <link href="css/reports.css" rel="stylesheet">
+    <link href="css/routine.css" rel="stylesheet">
+    <link href="css/settings.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/sidemenu.css" rel="stylesheet">
+	<!-- endbuild -->
+	
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-load/angular-load.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+    
+    <!-- epng progress chart -->
+    <script src="epng/chart/epng-progress-chart.js"></script>
+    
+    <!-- pouchdb -->
+    <script src="lib/pouchdb/pouchdb-3.4.0.min.js"></script>
+    <!-- pouchdb easternphoenix extension -->
+    <script src="lib/ep-pouchdb-ext/ep-pouchdb-ext.js"></script>
+
+    <!-- ion-affix : Sticky affix elements for Ionic framework -->
+    <script src="lib/ion-affix/ion-affix.js"></script>
+    <!-- ionic calendar -->
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+
+	<!-- build:js dist/js/app.min.js -->
+    <script src="app/App.js"></script>
+    <script src="app/AppCtrl.js"></script>
+    <script src="app/Services.js"></script>
+    <script src="app/IdUtils.js"></script>
+    <script src="app/DBMgr.js"></script>
+    <script src="app/BackendService.js"></script>
+    
+    <script src="app/StartupService.js"></script>
+    <script src="app/MockupService.js"></script>
+
+    <script src="app/login/LoginCtrl.js"></script>
+    <script src="app/login/SecurityService.js"></script>
+
+    <script src="app/home/HomeCtrl.js"></script>
+
+    <script src="app/config/ConfigCtrl.js"></script>
+    <script src="app/config/ConfigService.js"></script>
+
+	<script src="app/setup/SetupCtrl.js"></script>
+
+    <script src="app/routine/RoutineHomeCtrl.js"></script>
+    <script src="app/routine/fs/FsMainCtrl.js"></script>
+    <script src="app/routine/tp/TpMainCtrl.js"></script>
+    <script src="app/routine/foh/FohMainCtrl.js"></script>
+    <script src="app/routine/boh/BohMainCtrl.js"></script>
+    <script src="app/routine/dc/DcMainCtrl.js"></script>
+    <script src="app/routine/temp/TempMainCtrl.js"></script>
+    <script src="app/routine/bcTemp/BcTempMainCtrl.js"></script>
+    <script src="app/routine/cwTemp/CwTempMainCtrl.js"></script>
+    <script src="app/routine/RoutineService.js"></script>
+	<script src="app/routine/BlueThermService.js"></script>
+    <script src="app/routine/common/StatusCheckService.js"></script>
+    
+    <script src="app/hd/HDHomeCtrl.js"></script>
+    <script src="app/hd/HDViolationsCtrl.js"></script>
+    <script src="app/hd/HDService.js"></script>
+
+    <script src="app/reports/RptCtrl.js"></script>
+    <script src="app/reports/RptService.js"></script>
+    
+    <script src="app/settings/SettingCtrl.js"></script>
+    <script src="app/settings/SettingService.js"></script>
+
+    <script src="app/routine/common/ShiftNotesCtrl.js"></script>
+    <script src="app/routine/common/ShiftNotesService.js"></script>
+	<!-- endbuild  -->
+  </head>
+
+  <body ng-app="app" class="platform-ios platform-cordova platform-webview">
+    <ion-nav-view>
+    </ion-nav-view>
+  </body>
+</html>

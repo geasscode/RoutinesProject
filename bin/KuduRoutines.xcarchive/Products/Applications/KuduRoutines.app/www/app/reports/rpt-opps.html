@@ -1,0 +1,72 @@
+<!-- <ion-view title="User Reports">
+	<ion-nav-view>
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button ng-click="gotoReportsHome()">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <button class="button button-icon button-clear ion-android-more-vertical" menu-toggle="left">
+    </button>
+	<div align-title="center" class="bar bar-subheader bar-dark" style="opacity: 0.92;">
+		<a class="button ion-arrow-left-a bar-arrow-icon button-clear" ng-click="showReportsBadgesView()"></a>
+		<h2 class="title">Opportunities (4/6)</h2>
+		<a class="button ion-arrow-right-a bar-arrow-icon button-clear" ng-click="showReportsDetailView()"></a>
+	</div>
+	<ion-content class="has-subheader opp-grid">
+
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefreshOpps()">
+        </ion-refresher>
+
+		<div class="row opp-title">
+			<div class="col-50"></div>
+			<div class="col">Gap to Avg</div>
+			<div class="col opp-grid-title">Change</div>
+		</div>
+		<div ng-repeat="rptOpportunity in $root.rptOpportunities" 
+				class="row item item-avatar opp-datas"
+				style="background-color: {{rptOpportunity.style}}">
+			<div class="col col-50 opp-desc">
+				<p type="text" placeholder="Suhr" stype="font-size: 14px;">{{rptOpportunity.desc0}}</p>
+				<h2 type="text" stype="font-size: 16px">{{rptOpportunity.desc1}}</h2>
+			</div>
+			<div class="col " style="padding-top: 15px; text-align: certer">{{rptOpportunity.gapAvg}}</div>
+			<div class="col" style="text-align: certer">
+				<i class="icon ion-arrow-{{rptOpportunity.status}}-c arrow-icon 
+					arrow-{{rptOpportunity.status}}">
+				</i>
+				<span style="line-height:40px; display:inline-block; vertical-align: top">{{rptOpportunity.change}}</span>
+			</div>
+		</div>
+	</ion-content>
+	</ion-nav-view>
+</ion-view> -->
+
+<!-- <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefreshOpps()">
+</ion-refresher> -->
+
+<div class="opp-grid">
+	<div class="row opp-title">
+		<div class="col-50"></div>
+		<div class="col">Gap to Avg</div>
+		<div class="col opp-grid-title">Change</div>
+	</div>
+	<div ng-repeat="rptOpportunity in rptOpportunities" 
+			class="row item item-avatar opp-datas"
+			style="background-color: {{rptOpportunity.style}}">
+		<div class="col col-50 opp-desc">
+			<p type="text" placeholder="Suhr" stype="font-size: 14px;">{{rptOpportunity.desc0}}</p>
+			<h2 type="text" stype="font-size: 16px">{{rptOpportunity.desc1}}</h2>
+		</div>
+		<div class="col " style="padding-top: 15px; text-align: certer">{{rptOpportunity.gapAvg}}</div>
+		<div class="col" style="text-align: certer">
+			<i class="icon ion-arrow-{{rptOpportunity.status}}-c arrow-icon 
+				arrow-{{rptOpportunity.status}}">
+			</i>
+			<span style="line-height:40px; display:inline-block; vertical-align: top">{{rptOpportunity.change}}</span>
+		</div>
+	</div>
+</div>

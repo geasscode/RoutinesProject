@@ -1,0 +1,71 @@
+<!-- <ion-view title="User Reports">
+    <ion-nav-bar class="bar-stable">
+      <ion-nav-back-button ng-click="gotoReportsHome()">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+	<div align-title="center" class="bar bar-subheader bar-dark" style="opacity: 0.92;">
+		<a class="button ion-arrow-left-a bar-arrow-icon button-clear" ng-click="showReportsOpportunitiesView()"></a>
+		<h2 class="title">Detail (5/6)</h2>
+		<a class="button ion-arrow-right-a bar-arrow-icon button-clear" ng-click="showReportsCompetitiveView()"></a>
+	</div>
+	<ion-content class="has-header has-subheader detail-grid">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefreshDetail()">
+        </ion-refresher>
+
+		<div class="row detail-title has-subheader">
+			<div class="col col-25 col-offset-25" style="font-weight: bold;font-size:14px">{{rptOppsDates[0]}}</div>
+			<div class="col col-25">{{rptOppsDates[1]}}</div>
+			<div class="col col-25">{{rptOppsDates[2]}}</div>
+		</div>
+		<div ng-repeat="rptOppsDetail in $root.rptOppsDetails" 
+				class="row item item-avatar detail-data"
+				style="background-color: {{rptOppsDetail.style}};">
+			<div class="col col-25 item item-stacked-label status-{{rptOppsDetail.status}}"
+				style="text-align:left;border:0px"><div style="padding-top: 10px;font-size:14px">{{rptOppsDetail.time}}</div>
+			</div>
+			<div class="col col-25" style="padding-top: 10px;">
+				<i class="icon {{rptOppsDetail.details[0].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[0].color}}"></i>
+			</div>
+			<div class="col col-25" style="padding-top: 10px;">
+				<i class="icon {{rptOppsDetail.details[1].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[1].color}}"></i>
+			</div>
+			<div class="col col-25" style="padding-top: 10px;">
+				<i class="icon {{rptOppsDetail.details[2].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[2].color}}"></i>
+			</div>
+		</div>
+	</ion-content>
+</ion-view> -->
+
+<!-- <ion-refresher
+        pulling-text="Pull to refresh..."
+        on-refresh="doRefreshDetail()">
+</ion-refresher> -->
+
+<div class="detail-grid">
+
+	<div class="row detail-title has-subheader">
+		<!-- <div class="col col-25 col-offset-25" style="font-weight: bold;font-size:14px">{{rptOppsDetailsDates[0].date}}</div> -->
+		<div class="col col-25 col-offset-25" style="font-weight: bold;font-size:14px">Today</div>
+		<div class="col col-25">{{rptOppsDetailsDates[1].date}}</div>
+		<div class="col col-25">{{rptOppsDetailsDates[2].date}}</div>
+	</div>
+	<div ng-repeat="rptOppsDetail in rptOppsDetails" 
+			class="row item item-avatar detail-data"
+			style="background-color: {{rptOppsDetail.style}};">
+		<div class="col col-25 item item-stacked-label status-{{rptOppsDetail.status}}"
+			style="text-align:left;border:0px"><div style="padding-top: 10px;font-size:14px">{{rptOppsDetail.time}}</div>
+		</div>
+		<div class="col col-25" style="padding-top: 10px;">
+			<i class="icon {{rptOppsDetail.details[0].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[0].color}}"></i>
+		</div>
+		<div class="col col-25" style="padding-top: 10px;">
+			<i class="icon {{rptOppsDetail.details[1].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[1].color}}"></i>
+		</div>
+		<div class="col col-25" style="padding-top: 10px;">
+			<i class="icon {{rptOppsDetail.details[2].icon}}" style="font-size: 30px; color:{{rptOppsDetail.details[2].color}}"></i>
+		</div>
+	</div>
+</div>

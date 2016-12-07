@@ -1,0 +1,169 @@
+<ion-header-bar align-title="left" class="bar-stable">
+  <h1 class="title">Restaurant Configuration</h1>
+    <!-- Save Config Button -->
+  <div class="buttons">
+    <button class="button button-positive" ng-click="saveRestConfig()">
+      Save
+    </button>
+  </div>
+</ion-header-bar>
+<ion-view view-title="Configuration">
+  <ion-content class="home-bg vbox" scroll="true">
+    <!-- Hrs of Ops -->
+    <!-- <div class="whiteBox padding">
+      <div class="row hrsTitle vbox main-center">
+        <p>Hours of Operation:</p>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="button button-outline button-block button-stable" ng-click="openTimePicker('hrsOps.openHours')">
+            {{hrsOps.openHours}}
+          </button>
+        </div>
+        <div class="col">
+          <button class="button button-outline button-block button-stable" ng-click="openTimePicker('hrsOps.closingHours')">
+            {{hrsOps.closingHours}}
+          </button>
+        </div>
+      </div>
+    </div> -->
+    <!-- End Hrs of Ops -->
+
+    <!-- Days -->
+    <div class="list">
+      <label class="item item-input item-select">
+        <div class="input-label">
+          <strong>Current Day</strong>
+        </div>
+        <select ng-model="dayPart">
+          <option value="0">Sunday</option>        
+          <option value="1">Monday</option>
+          <option value="2">Tuesday</option>
+          <option value="3">Wednesday</option>
+          <option value="4">Thursday</option>
+          <option value="5">Friday</option>
+          <option value="6">Saturday</option>
+        </select>
+      </label>
+    </div>
+    <!-- End Days -->
+
+    <!-- Daypart -->
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Hrs. of Operation</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.sun.startTime')">
+          {{restConfigs.sun.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.sun.endTime')">
+          {{restConfigs.sun.endTime}}
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Dining Room</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.mon.startTime')">
+          {{restConfigs.mon.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.mon.endTime')">
+          {{restConfigs.mon.endTime}}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Breakfast</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.tue.startTime')">
+          {{restConfigs.tue.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.tue.endTime')">
+          {{restConfigs.tue.endTime}}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Lunch</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.wed.startTime')">
+          {{restConfigs.wed.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.wed.endTime')">
+          {{restConfigs.wed.endTime}}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Snack</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.thu.startTime')">
+          {{restConfigs.thu.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.thu.endTime')">
+          {{restConfigs.thu.endTime}}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Dinner</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.fri.startTime')">
+          {{restConfigs.fri.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.fri.endTime')">
+          {{restConfigs.fri.endTime}}
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col dateTitle vbox main-center">
+        <p>Late Night</p>
+      </div>
+      <div class="startTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.sat.startTime')">
+          {{restConfigs.sat.startTime}}
+        </button>
+      </div>
+      <div class="endTimeBox col">
+        <button class="button button-light button-block button-outline" ng-click="openTimePicker('restConfigs.sat.endTime')">
+          {{restConfigs.sat.endTime}}
+        </button>
+      </div>
+    </div>
+    
+    <!-- End Daypart -->
+
+    <!-- Toggles -->
+    <ion-toggle ng-model="restConfigs.filters.dt" toggle-class="toggle-default">Drive-Thru</ion-toggle>
+    <ion-toggle ng-model="restConfigs.filters.dr" toggle-class="toggle-default">Dining Room</ion-toggle>
+    <ion-toggle ng-model="restConfigs.filters.rr" toggle-class="toggle-default">Rest Room</ion-toggle>
+    <ion-toggle ng-model="restConfigs.filters.fs" toggle-class="toggle-default">Freestanding</ion-toggle>
+    <!-- End Toggles -->
+  </ion-content>
+</ion-view>
+

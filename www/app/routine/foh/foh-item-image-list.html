@@ -1,0 +1,20 @@
+<ion-modal-view>
+  <ion-header-bar>
+  	<div class="buttons">
+      <button class="button button-clear button-positive" ng-click="hideDialog()">Cancel</button>
+    </div>
+    <h1 class="title">Pictures</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="takePicture()">Take Picture</button>
+    </div>
+  </ion-header-bar>
+  <ion-content >
+	<div class="list">
+	    <a class="item item-thumbnail-left item-icon-right" ng-repeat="item in fohPictureList">
+	      <img ng-src="{{ item.evalImageSrc }}">
+
+	      <i class="icon ion-minus-circled" style="color:red;" ng-click="showConfirmDelete(item,$index)"></i>
+	    </a>
+	</div>
+  </ion-content>
+</ion-modal-view>
