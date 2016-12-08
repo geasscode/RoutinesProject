@@ -160,8 +160,11 @@ lane :release do
 # No file changes picked up. Make sure you run the `increment_build_number` action first.
     # sh("git add . && git commit -m 'Deploying version #{get_version_number}'").strip
 
+ # cordova 项目会有多个.xcodproj文件需要指定主要的项目文件
   commit_version_bump(
-   message: "Deploying version #{get_version_number}."
+   message: "Deploying version #{get_version_number}.",
+   xcodeproj: "KuduRoutines.xcodeproj"
+, # optional, if you have multiple Xcode project files, you must specify your main project here
   )
     # git_commit(message: "Version Bump")
 
