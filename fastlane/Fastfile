@@ -113,16 +113,21 @@ lane :release do
       # readonly:true
       # )
 
-    build_name = "KuduRoutines_v#{get_version_number}"
     #export 有下面几种方式
      #export_method:"ad-hoc,enterprise,appstore,development"
 
      #一定要注意一定要加上export_method:"enterprise" 否则会报错，或者用
      #use_legacy_build_api: true代替
 
-   #编译sqlite 时会停留很长时间因为存在语法警告。
+    #build_name = "KuduRoutines_v#{get_version_number}"
+     # build_name 不要使用全局变量
+     #export ipa 发生在 get_version_number之前导致 无法获取增加后的版本。
+
 
   lane :buildIPA do
+
+    build_name = "KuduRoutines_v#{get_version_number}"
+
     gym(
       configuration: "Release",
       scheme: "KuduRoutines",
