@@ -164,7 +164,6 @@ lane :release do
   commit_version_bump(
    message: "Deploying version #{get_version_number}.",
    xcodeproj: "KuduRoutines.xcodeproj"
-, # optional, if you have multiple Xcode project files, you must specify your main project here
   )
     # git_commit(message: "Version Bump")
 
