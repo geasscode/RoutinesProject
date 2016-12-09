@@ -142,6 +142,56 @@ lane :release do
       )
   end
 
+#最终幻想究极进化版。
+#kuduRoutine 项目 请直接在当前ios 项目目录执行 fastlane build_ipa
+#kuduLeader 需要提供参数
+# fastlane build_ipa flag:live scheme:Kudu\ Leader
+  lane :build_ipa do |options|
+
+    flag = options[:flag] || 'other'
+    #scheme ＝ options[:scheme] || "Kudu\ Leader"
+
+    scheme = options[:scheme] || 'KuduRoutines'
+    export_method = options[:export_method] || 'enterprise'
+    output_path = options[:output_path] || '~/Documents/buildIPA/'
+
+    filePath =  '~/Documents/kuduLeaderTest/kuduLeader/www/app/Services.js'
+
+    if flag == 'test'
+
+    sh("sed -i '' '/live url/s/baseUrl/\\/\\/ baseUrl/' #{filePath}").strip
+    sh("sed -i '' '/testkudu/s/\\/\\/ baseUrl/baseUrl/' #{filePath}").strip
+    build_name = "#{scheme}_v#{get_version_number}_#{flag}"
+
+    elsif flag == 'live'
+    sh("sed -i '' '/testkudu/s/baseUrl/\\/\\/ baseUrl/' #{filePath}").strip
+    sh("sed -i '' '/live url/s/\\/\\/ baseUrl/baseUrl/' #{filePath}").strip
+    build_name = "#{scheme}_v#{get_version_number}_#{flag}"
+
+    else
+        build_name = "#{scheme}_v#{get_version_number}"
+
+    end
+
+
+    # build_name = "#{scheme}_v#{get_version_number}_#{flag}"
+
+    gym(
+      configuration: "Release",
+      scheme: scheme,
+      include_bitcode: false,
+      output_name: "#{build_name}.ipa",
+      silent: true,
+      clean: true,
+      include_symbols:true,
+      output_directory: output_path,
+      # use_legacy_build_api: true,
+      export_method:export_method
+      )
+
+    sh("fir publish #{output_path}#{build_name}.ipa -T b668e48c86ec4baf052b4a37899f4eb2").strip
+end
+
   # You can define as many lanes as you want
 
   after_all do |lane|
@@ -150,8 +200,7 @@ lane :release do
   # Make sure our directory is clean, except for changes Fastlane has made
    # clean_build_artifacts
 
-
-  sh("fir publish ~/Documents/buildIPA/KuduRoutines_v#{get_version_number}.ipa -T b668e48c86ec4baf052b4a37899f4eb2").strip
+  # sh("fir publish ~/Documents/buildIPA/KuduLeader_v#{get_version_number}.ipa -T b668e48c86ec4baf052b4a37899f4eb2").strip
 
   increment_build_number(
     build_number: Time.new.strftime("%Y.%m.%d")

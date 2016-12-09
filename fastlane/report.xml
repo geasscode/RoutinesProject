@@ -3,62 +3,32 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000815">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.001401">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000279">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000385">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.00851">
+      <testcase classname="fastlane.lanes" name="2: ensure_git_branch" time="0.018624">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: increment_version_number" time="1.140153">
+      <testcase classname="fastlane.lanes" name="3: increment_version_number" time="1.35489">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: get_version_number" time="0.568738">
+      <testcase classname="fastlane.lanes" name="4: get_version_number" time="0.595186">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: gym" time="52.32115">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="6: get_version_number" time="0.749768">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: fir publish ~/Documents/buildIPA/KuduRoutines_v0.4.11.ipa -T b668e48c86ec4baf052b4a37899f4eb2" time="21.506888">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: increment_build_number" time="1.249569">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="9: get_version_number" time="1.070078">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="10: git commit -a -m 'Deploying version 0.4.11'" time="0.181711">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="11: push_to_git_remote" time="8.10035">
+      <testcase classname="fastlane.lanes" name="5: gym" time="56.371156">
         
       </testcase>
     

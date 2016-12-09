@@ -28,6 +28,11 @@ Deploy a new version to the App Store
 fastlane ios buildIPA
 ```
 
+### ios build_ipa
+```
+fastlane ios build_ipa
+```
+
 
 ----
 
