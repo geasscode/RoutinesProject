@@ -475,7 +475,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Desmond Dong (5683Q36BYV)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 2016.12.08;
+				CURRENT_PROJECT_VERSION = 2016.12.09;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -514,7 +514,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: The Technology Studio, LLC";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 2016.12.08;
+				CURRENT_PROJECT_VERSION = 2016.12.09;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KuduRoutines/KuduRoutines-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
